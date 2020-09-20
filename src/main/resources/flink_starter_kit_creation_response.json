@@ -1,0 +1,72 @@
+{
+	"ApplicationDetail": {
+		"ApplicationARN": "arn:aws:kinesisanalytics:us-east-1:1234567890:application/kda_flink_starter_kit",
+		"ApplicationDescription": "KDA Session Manager with stream starting position as TRIM_HORIZON",
+		"ApplicationName": "amazon_kda_flink_starter_kit",
+		"RuntimeEnvironment": "FLINK-1_8",
+		"ServiceExecutionRole": "arn:aws:iam::1234567890:role/flink_starter_kit_role",
+		"ApplicationStatus": "READY",
+		"ApplicationVersionId": 1,
+		"CreateTimestamp": "2020-08-26T12:28:59-05:00",
+		"LastUpdateTimestamp": "2020-08-26T12:28:59-05:00",
+		"ApplicationConfigurationDescription": {
+			"ApplicationCodeConfigurationDescription": {
+				"CodeContentType": "ZIPFILE",
+				"CodeContentDescription": {
+					"CodeMD5": "5b2133324fe949278bb48c6ade1d6394",
+					"CodeSize": 37683354,
+					"S3ApplicationCodeLocationDescription": {
+						"BucketARN": "arn:aws:s3:::bucket_name",
+						"FileKey": "kda_flink_starter_kit/amazon-kda-flink-starter-kit-0.1.jar"
+					}
+				}
+			},
+			"FlinkApplicationConfigurationDescription": {
+				"CheckpointConfigurationDescription": {
+					"ConfigurationType": "DEFAULT",
+					"CheckpointingEnabled": true,
+					"CheckpointInterval": 60000,
+					"MinPauseBetweenCheckpoints": 5000
+				},
+				"MonitoringConfigurationDescription": {
+					"ConfigurationType": "DEFAULT",
+					"MetricsLevel": "APPLICATION",
+					"LogLevel": "INFO"
+				},
+				"ParallelismConfigurationDescription": {
+					"ConfigurationType": "CUSTOM",
+					"Parallelism": 5,
+					"ParallelismPerKPU": 1,
+					"CurrentParallelism": 5,
+					"AutoScalingEnabled": false
+				}
+			},
+			"EnvironmentPropertyDescriptions": {
+				"PropertyGroupDescriptions": [
+					{
+						"PropertyGroupId": "FlinkAppProperties",
+						"PropertyMap": {
+							"region": "us-east-1",
+							"bucket_check_interval_in_seconds": "2",
+							"inactivity_interval_in_seconds": "2",
+							"rolling_interval_in_seconds": "2",
+							"s3_output_path": "s3a://bucket_name/kda_flink_starter_kit/kda_flink_starter_kit_s3_output",
+							"session_time_out_in_minutes": "10",
+							"input_stream_name": "kda_flink_starter_kit_kinesis_stream",
+							"stream_init_position": "TRIM_HORIZON"
+						}
+					}
+				]
+			},
+			"ApplicationSnapshotConfigurationDescription": {
+				"SnapshotsEnabled": true
+			}
+		},
+		"CloudWatchLoggingOptionDescriptions": [
+			{
+				"CloudWatchLoggingOptionId": "1.1",
+				"LogStreamARN": "arn:aws:logs:us-east-1:1234567890:log-group:/aws/kinesis-analytics/kda_flink_starter_kit:log-stream:kda_flink_starter_kit"
+			}
+		]
+	}
+}

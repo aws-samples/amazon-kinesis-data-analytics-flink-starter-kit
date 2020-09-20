@@ -1,0 +1,8 @@
+{
+	"ApplicationName": "amazon_kda_flink_starter_kit",
+	"RunConfiguration": {
+		"ApplicationRestoreConfiguration": {
+			"ApplicationRestoreType": "SKIP_RESTORE_FROM_SNAPSHOT"
+		}
+	}
+}
