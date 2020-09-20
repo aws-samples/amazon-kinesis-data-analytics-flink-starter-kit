@@ -230,7 +230,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
     1. Monitoring -> Monitoring metrics level = Parallelism
     1. Monitoring -> Monitoring with CloudWatch Logs -> Enable, Monitoring log level = Info
     1. Scaling -> Parallelism = 10, Parallelism per KPU = 1
-1. Under Properties, click on Add group and provide the  **Group ID** as ```FlinkAppProperties```. Create properties defined in the section [Flink Application Properties](##flink-application-properties)
+1. Under Properties, click on Add group and provide the  **Group ID** as ```FlinkAppProperties```. Create properties defined in the section [Flink Application Properties](#flink-application-properties)
 
 ---
 
