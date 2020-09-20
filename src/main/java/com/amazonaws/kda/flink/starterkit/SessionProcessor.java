@@ -41,7 +41,7 @@ public class SessionProcessor {
 	private static final Logger log = Logger.getLogger(SessionProcessor.class);
 
 	/**
-	 * Main method and the entry point for Kinesis Analytics Application.
+	 * Main method and the entry point for Kinesis Data Analytics Flink Application.
 	 * 
 	 * @param args
 	 * @throws Exception
@@ -57,7 +57,7 @@ public class SessionProcessor {
 			Properties flinkProperties = applicationProperties.get("FlinkAppProperties");
 			if (flinkProperties == null) {
 				throw new RuntimeException(
-						"Unable to load properties with group ChoiceRealtimeProperties from Kinesis Analytics Runtime.");
+						"Unable to load properties from Group ID FlinkAppProperties.");
 			}
 			parameter = ParameterToolUtils.fromApplicationProperties(flinkProperties);
 		}
@@ -96,12 +96,11 @@ public class SessionProcessor {
 		 */
 		long timeout = Long.parseLong(parameter.get("session_time_out_in_minutes"));
 		DataStream<String> sessionStream = keyedStream
-				.window(ProcessingTimeSessionWindows.withGap(Time.minutes(timeout))).aggregate(new Aggregator());
-
-		sessionStream.addSink(createS3Sink(parameter)).name("session_manager_sink1");
-		log.info("Sink added - sending s3 sink.");
-
-		env.execute("SAPI Session Manager Streaming Application");
+				.window(ProcessingTimeSessionWindows.withGap(Time.minutes(timeout))).aggregate(new Aggregator())
+				.name("session_stream");
+		sessionStream.addSink(createS3Sink(parameter)).name("session_processor_sink");
+		log.info("S3 Sink added.");
+		env.execute("Kinesis Data Analytics Flink Application with  Session Window and Aggregate Function");
 	}
 
 	/**
@@ -156,15 +155,14 @@ public class SessionProcessor {
 	 */
 	private static boolean validateRuntimeProperties(ParameterTool paramTool) {
 
+		boolean bucketExist = false;
 		boolean propertiesValid = false;
 		boolean initialTimestampNAOrValidIfPresent = false;
 
 		try {
 			log.info("Printing runtime Properties to CloudWatch");
 			paramTool.toMap().forEach((key, value) -> log.info("parameter: " + key + ", value: " + value));
-			// boolean bucketExist = ChoiceUtil.checkIfBucketExist(parameter.get("region"),
-			// parameter.get("s3_output_path"));
-			boolean bucketExist = true;
+			bucketExist = SessionUtil.checkIfBucketExist(paramTool.get("region"), paramTool.get("s3_output_path"));
 			long sessionTimeout = Long.parseLong(paramTool.get("session_time_out_in_minutes"));
 			boolean streamExist = SessionUtil.checkIfStreamExist(paramTool.get("region"),
 					paramTool.get("input_stream_name"));
