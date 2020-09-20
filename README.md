@@ -45,22 +45,31 @@ The following AWS services are required to deploy this starter kit:
 
 ### Build Apache Flink Connector for Amazon Kinesis
 
- 1. Run this command to run the script [build_flink_connector_kinesis.sh](./src/main/resources/build_flink_connector_kinesis.sh)
+1. Run this command to run the script [build_flink_connector_kinesis.sh](./src/main/resources/build_flink_connector_kinesis.sh)
 
     ```./build_flink_connector_kinesis.sh PATH_TO_FLINK_SOURCE_CODE 1.8.2 2.11```
 
- 1. This will generate ```flink-connector-kinesis_2.11-1.8.2.jar``` under ***PATH_TO_FLINK_SOURCE_CODE/flink-release-1.8.2/flink-connectors/flink-connector-kinesis/target/*** on the computer you ran the build script
+1. This will generate ```flink-connector-kinesis_2.11-1.8.2.jar``` under ***PATH_TO_FLINK_SOURCE_CODE/flink-release-1.8.2/flink-connectors/flink-connector-kinesis/target/***
+1. When the above step is successfull, below Maven dependency will be resolved properly in [pom.xml](./pom.xml)
+
+    ```xml
+    <dependency>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-connector-kinesis_${scala.binary.version}</artifactId>
+        <version>${flink.version}</version>
+   </dependency>
+    ```
 
 ---
 
 ### Build Apache Flink Application
 
- 1. Clone the source code to your Laptop / MacBook
- 1. The source code has Maven nature, so if you have Maven locally then you can build it using standard Maven commands
+ 1. Clone this starter kit to your Laptop / MacBook
+ 1. It has Maven nature, so you can import it to your IDE.
+ 1. Build the Jar file using one of the steps below:
     1. Using standalone Maven, go to project home directory and run command ```mvn -X clean install```
-    1. Or from Eclipse (STS), run command ```-X clean install```. Navigation: Project right click --> Run As --> Maven Build (Option 4)
- 1. This  will generate a jar file  ```amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar```
- 1. Note: The  size  of the jar file is about 38 MB
+    1. From Eclipse or STS, run command ```-X clean install```. Navigation: Project right click --> Run As --> Maven Build (Option 4)
+ 1. Build process will generate a jar file  ```amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar```. Note: The  size  of the jar file is around 38 MB
 
 ---
 
