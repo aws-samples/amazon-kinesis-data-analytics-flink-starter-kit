@@ -17,7 +17,7 @@ import com.amazonaws.services.kinesis.model.Shard;
 
 /**
  * 
- * This class has utility methods required for SessionProcessor.java class
+ * This class has utility methods used by SessionProcessor.java class
  * 
  * @author Ravi Itha, Amazon Web Services, Inc.
  *
