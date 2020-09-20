@@ -8,8 +8,8 @@ Amazon Kinesis Data Analytics Flink Starter Kit helps you with the development o
 * [Application Overview](#application-overview)
 * [Build Instructions](#build-instructions)
 * [Deployment Instructions](#deployment-instructions)
-* [Testing Instructions](##testing-instructions)
-* [Future Releases](##future-releases)
+* [Testing Instructions](#testing-instructions)
+* [Future Releases](#future-releases)
 
 ---
 
