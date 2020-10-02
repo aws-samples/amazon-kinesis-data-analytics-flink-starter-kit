@@ -176,7 +176,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
         --policy-arn arn:aws:iam::<1234567890>:policy/flink_starter_kit_iam_policy_s3
         ```
 
-1. Open [flink_starter_kit_def_stream_position_trim_horizon.json](./src/main/resources/flink_starter_kit_def_stream_position_trim_horizon.json) andd update the following values:
+1. Open [flink_starter_kit_def_stream_position_trim_horizon.json](./src/main/resources/flink_starter_kit_def_stream_position_trim_horizon.json) and update the following values:
     1. AWS account number in attributes **ServiceExecutionRole** and **LogStreamARN**
     1. S3 bucket name for attribute **BucketARN**
     1. S3 bucket name for parameter **s3_output_path** under **PropertyMaps**
