@@ -4,5 +4,4 @@ public enum StreamPosition {
 	LATEST,
 	TRIM_HORIZON,
 	AT_TIMESTAMP
-
 }

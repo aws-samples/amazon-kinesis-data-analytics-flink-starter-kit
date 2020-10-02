@@ -1,4 +1,4 @@
-# Amazon Kinesis Data Analytics Flink - Starter Kit
+# Amazon Kinesis Data Analytics Flink – Starter Kit
 
 Amazon Kinesis Data Analytics Flink Starter Kit helps you with the development of Flink Application with Kinesis Stream as a source and Amazon S3 as a sink. This demonstrates the use of [Session Window](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#session-windows) with [AggregateFunction](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#aggregatefunction).
 
@@ -110,7 +110,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
     aws kinesis create-stream --stream-name kda_flink_starter_kit_kinesis_stream --shard-count 4
     ```
 
-1. Create IAM policies. On your terminal, navigate to folder ***/Amazon-kda-flink-starter-kit/src/main/resources***
+1. Create IAM policies. On your terminal, navigate to folder ***/amazon-kinesis-data-analytics-flink-starter-kit/src/main/resources***
 
     1. Policy for CloudWatch Logs
 
@@ -146,34 +146,34 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
     aws iam create-role --role-name flink_starter_kit_role --assume-role-policy-document file://flink_starter_kit_assume-role-policy-document.json
     ```
 
-1. Attach policies to IAM role ```flink_starter_kit_role```. Replace **1234567890** with your AWS Account Id before running the commands.
+1. Attach policies to IAM role ```flink_starter_kit_role```. Replace **<1234567890>** with your AWS Account Id before running the commands.
 
     1. Policy for CloudWatch Logs
 
         ```bash
         aws iam attach-role-policy --role-name flink_starter_kit_role \
-        --policy-arn arn:aws:iam::1234567890:policy/flink_starter_kit_iam_policy_cloudwatch_logs
+        --policy-arn arn:aws:iam::<1234567890>:policy/flink_starter_kit_iam_policy_cloudwatch_logs
         ```
 
     1. Policy for CloudWatch
 
         ```bash
         aws iam attach-role-policy --role-name flink_starter_kit_role \
-        --policy-arn arn:aws:iam::1234567890:policy/flink_starter_kit_iam_policy_cloudwatch
+        --policy-arn arn:aws:iam::<1234567890>:policy/flink_starter_kit_iam_policy_cloudwatch
         ```
 
     1. Policy for Kinesis
 
         ```bash
         aws iam attach-role-policy --role-name flink_starter_kit_role \
-        --policy-arn arn:aws:iam::1234567890:policy/flink_starter_kit_iam_policy_kinesis
+        --policy-arn arn:aws:iam::<1234567890>:policy/flink_starter_kit_iam_policy_kinesis
         ```
 
     1. Policy for S3
 
         ```bash
         aws iam attach-role-policy --role-name flink_starter_kit_role \
-        --policy-arn arn:aws:iam::1234567890:policy/flink_starter_kit_iam_policy_s3
+        --policy-arn arn:aws:iam::<1234567890>:policy/flink_starter_kit_iam_policy_s3
         ```
 
 1. Open [flink_starter_kit_def_stream_position_trim_horizon.json](./src/main/resources/flink_starter_kit_def_stream_position_trim_horizon.json) andd update the following values:
@@ -245,7 +245,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
 
 ## Testing Instructions
 
-TBA
+You can use [Amazon Kinesis Data Analytics Flink – Benchmarking Utility](https://github.com/aws-samples/amazon-kinesis-data-analytics-flink-benchmarking-utility) to generate sample data, test Apache Flink Session Window, and to prove the architecture of this starter kit.
 
 ---
 
