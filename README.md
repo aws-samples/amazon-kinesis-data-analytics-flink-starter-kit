@@ -45,7 +45,7 @@ The following AWS services are required to deploy this starter kit:
 
 ### Build Apache Flink Connector for Amazon Kinesis
 
-1. Run this command to run the script [build_flink_connector_kinesis.sh](./src/main/resources/build_flink_connector_kinesis.sh)
+1. Use this command to run the script [build_flink_connector_kinesis.sh](./src/main/resources/build_flink_connector_kinesis.sh)
 
     ```./build_flink_connector_kinesis.sh PATH_TO_FLINK_SOURCE_CODE 1.8.2 2.11```
 
