@@ -22,13 +22,13 @@ public class Aggregator implements AggregateFunction<Event, String, String> {
 
 	@Override
 	public String add(Event value, String accumulator) {
-		StringBuffer acc = new StringBuffer();
+		String newAccumulator = null;
 		try {
-			acc.append(accumulator).append("$").append(new ObjectMapper().writeValueAsString(value));
+			newAccumulator =  new String(accumulator).concat("$").concat(new ObjectMapper().writeValueAsString(value));
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		return acc.toString();
+		return newAccumulator;
 	}
 
 	@Override
@@ -38,9 +38,7 @@ public class Aggregator implements AggregateFunction<Event, String, String> {
 
 	@Override
 	public String merge(String a, String b) {
-		StringBuilder acc = new StringBuilder();
-		acc.append(a).append("$").append(b);
-		return acc.toString();
+		return new  String(a).concat("$").concat(b);
 	}
 
 }
