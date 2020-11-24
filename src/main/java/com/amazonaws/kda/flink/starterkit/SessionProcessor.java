@@ -23,7 +23,8 @@ import org.apache.flink.streaming.api.windowing.assigners.ProcessingTimeSessionW
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.kinesis.FlinkKinesisConsumer;
 import org.apache.flink.streaming.connectors.kinesis.config.ConsumerConfigConstants;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.amazonaws.services.kinesisanalytics.runtime.KinesisAnalyticsRuntime;
 
@@ -38,7 +39,7 @@ import com.amazonaws.services.kinesisanalytics.runtime.KinesisAnalyticsRuntime;
  */
 public class SessionProcessor {
 
-	private static final Logger log = Logger.getLogger(SessionProcessor.class);
+	private static final Logger log = LogManager.getLogger(SessionProcessor.class);
 
 	/**
 	 * Main method and the entry point for Kinesis Data Analytics Flink Application.
@@ -56,8 +57,7 @@ public class SessionProcessor {
 			Map<String, Properties> applicationProperties = KinesisAnalyticsRuntime.getApplicationProperties();
 			Properties flinkProperties = applicationProperties.get("FlinkAppProperties");
 			if (flinkProperties == null) {
-				throw new RuntimeException(
-						"Unable to load properties from Group ID FlinkAppProperties.");
+				throw new RuntimeException("Unable to load properties from Group ID FlinkAppProperties.");
 			}
 			parameter = ParameterToolUtils.fromApplicationProperties(flinkProperties);
 		}
