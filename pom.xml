@@ -5,59 +5,61 @@
 	<name>Amazon Kinesis Data Analytics Flink - Starter Kit</name>
 	<groupId>com.amazonaws.kda.samples</groupId>
 	<artifactId>amazon-kinesis-data-analytics-flink-starter-kit</artifactId>
-	<version>0.1</version>
+	<version>1.0</version>
 	
 	<properties>
-		<java.version>1.8</java.version>
-		<scala.binary.version>2.11</scala.binary.version>
-		<kda.version>1.1.0</kda.version>
-		<flink.version>1.8.2</flink.version>
+		<java.version>11</java.version>
+		<scala.binary.version>2.12</scala.binary.version>
+		<kinesis.analytics.flink.version>2.0.0</kinesis.analytics.flink.version>
+		<kinesis.analytics.runtime.version>1.2.0</kinesis.analytics.runtime.version>
+		<flink.version>1.11.1</flink.version>
 	</properties>
 
 	<dependencies>
-		<!-- JUnit Dependency -->
+		<!-- JUnit dependency -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.6.2</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- Log4j Dependency -->
+		<!-- Log4j dependencies -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.14.0</version>
 		</dependency>
-
-		<!-- Amazon Kinesis Analytics runtime dependencies -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.0</version>
+		</dependency>
+		<!-- Amazon Kinesis Analytics runtime dependency -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-kinesisanalytics-runtime</artifactId>
-			<version>${kda.version}</version>
+			<version>${kinesis.analytics.runtime.version}</version>
 		</dependency>
-		
-		<!-- Apache Flink connector for Amazon Kinesis -->
+		<!-- Amazon Kinesis Analytics Flink dependency -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-kinesisanalytics-flink</artifactId>
+			<version>${kinesis.analytics.flink.version}</version>
+		</dependency>
+		<!-- Apache Flink connector for Amazon Kinesis dependency -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-connector-kinesis_${scala.binary.version}</artifactId>
 			<version>${flink.version}</version>
 		</dependency>
-		
+		<!-- Flink streaming Java dependency -->
 		<dependency>
 			<groupId>org.apache.flink</groupId>
 			<artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
 			<version>${flink.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-kinesisanalytics-flink</artifactId>
-			<version>${kda.version}</version>
-		</dependency>
-		
-		<!-- Amazon CloudWatch Logs -->
+		<!-- Amazon CloudWatch Logs dependency -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-logs</artifactId>
@@ -130,17 +132,11 @@
 				<groupId>com.amazonaws</groupId>
 				<artifactId>aws-java-sdk-bom</artifactId>
 				<!-- Get the latest SDK version from https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom -->
-				<version>1.11.702</version>
+				<version>1.11.892</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
-	<repositories>
-		<repository>
-			<id>log4j</id>
-			<url>https://mvnrepository.com/artifact/log4j/log4j</url>
-		</repository>
-	</repositories>
 </project>

@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.apache.flink.kinesis.shaded.com.amazonaws.services.s3.AmazonS3;
 import org.apache.flink.kinesis.shaded.com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.kinesis.AmazonKinesis;
@@ -24,7 +25,7 @@ import com.amazonaws.services.kinesis.model.Shard;
  */
 public class SessionUtil {
 
-	private static final Logger log = Logger.getLogger(SessionUtil.class);
+	private static final Logger log = LogManager.getLogger(SessionUtil.class);
 
 	/**
 	 * Method checks if a Kinesis Stream exist
@@ -100,8 +101,9 @@ public class SessionUtil {
 	}
 
 	/**
-	 * This method validates a data format
-	 * Reference: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+	 * This method validates a data format Reference:
+	 * https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+	 * 
 	 * @param streamInitialTimestamp
 	 * @return
 	 */

@@ -22,11 +22,11 @@ The Architecture of this starter kit is shown in the below diagram
 
 ### Pre-requisites
 
- 1. JDK 8
- 1. IDE for  e.g. [Eclipse](https://www.eclipse.org/) or [Spring Tools](https://spring.io/tools) or [Intellij IDEA](https://www.jetbrains.com/idea/)
+ 1. JDK 11
+ 1. IDE for e.g. [Eclipse](https://www.eclipse.org/) or [Spring Tools](https://spring.io/tools) or [Intellij IDEA](https://www.jetbrains.com/idea/)
  1. [Apache Maven](https://maven.apache.org/)
  1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
- 1. This starter kit tested with Apache Flink Version 1.8
+ 1. This starter kit tested with the Apache Flink Version 1.11
 
 ---
 
@@ -43,25 +43,6 @@ The following AWS services are required to deploy this starter kit:
 
 ## Build Instructions
 
-### Build Apache Flink Connector for Amazon Kinesis
-
-1. Use this command to run the script [build_flink_connector_kinesis.sh](./src/main/resources/build_flink_connector_kinesis.sh)
-
-    ```./build_flink_connector_kinesis.sh PATH_TO_FLINK_SOURCE_CODE 1.8.2 2.11```
-
-1. This will generate ```flink-connector-kinesis_2.11-1.8.2.jar``` under ***PATH_TO_FLINK_SOURCE_CODE/flink-release-1.8.2/flink-connectors/flink-connector-kinesis/target/***
-1. When the above step is successfull, below Maven dependency will be resolved properly in [pom.xml](./pom.xml)
-
-    ```xml
-    <dependency>
-        <groupId>org.apache.flink</groupId>
-        <artifactId>flink-connector-kinesis_${scala.binary.version}</artifactId>
-        <version>${flink.version}</version>
-   </dependency>
-    ```
-
----
-
 ### Build Apache Flink Application
 
  1. Clone this starter kit to your Laptop / MacBook
@@ -69,7 +50,8 @@ The following AWS services are required to deploy this starter kit:
  1. Build the Jar file using one of the steps below:
     1. Using standalone Maven, go to project home directory and run command ```mvn -X clean install```
     1. From Eclipse or STS, run command ```-X clean install```. Navigation: Project right click --> Run As --> Maven Build (Option 4)
- 1. Build process will generate a jar file  ```amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar```. Note: The  size  of the jar file is around 38 MB
+ 1. Build process will generate a jar file  ```amazon-kinesis-data-analytics-flink-starter-kit-1.0.jar```. 
+ 1. Note: The size of the jar file is around 46 MB
 
 ---
 
@@ -101,7 +83,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
 1. Upload Flink Application Jar file to S3 bucket
 
     ```bash
-    aws s3 cp amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar s3://bucket_name/kda_flink_starter_kit_jar/
+    aws s3 cp amazon-kinesis-data-analytics-flink-starter-kit-1.0.jar s3://bucket_name/kda_flink_starter_kit_jar/
     ```
 
 1. Create Kinesis Stream
@@ -229,7 +211,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
     1. Runtime = Apache Flink. Select version 1.8
 1. Click on Configure
     1. Amazon S3 bucket = Choose the bucket you selected in Step # 2
-    1. Path to Amazon S3 object = must be the prefix for ```amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar```
+    1. Path to Amazon S3 object = must be the prefix for ```amazon-kinesis-data-analytics-flink-starter-kit-1.0.jar```
     1. Under section **Access to application resources** select ***Choose from IAM roles that Kinesis Data Analytics can assume***
     1. IAM role = Choose the IAM role created above
     1. Using the Jar file generated in the above step
