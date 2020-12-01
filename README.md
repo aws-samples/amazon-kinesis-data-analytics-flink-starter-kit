@@ -26,7 +26,7 @@ The Architecture of this starter kit is shown in the below diagram
  1. IDE for e.g. [Eclipse](https://www.eclipse.org/) or [Spring Tools](https://spring.io/tools) or [Intellij IDEA](https://www.jetbrains.com/idea/)
  1. [Apache Maven](https://maven.apache.org/)
  1. [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
- 1. This starter kit tested with Apache Flink Version 1.8
+ 1. This starter kit tested with the Apache Flink Version 1.11
 
 ---
 
