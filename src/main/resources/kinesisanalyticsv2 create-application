@@ -1,0 +1,77 @@
+{
+    "ApplicationDetail": {
+        "ApplicationARN": "arn:aws:kinesisanalytics:us-east-1:259982120143:application/amazon_kda_flink_starter_kit",
+        "ApplicationDescription": "KDA Session Manager with stream starting position as TRIM_HORIZON",
+        "ApplicationName": "amazon_kda_flink_starter_kit",
+        "RuntimeEnvironment": "FLINK-1_8",
+        "ServiceExecutionRole": "arn:aws:iam::259982120143:role/flink_starter_kit_role",
+        "ApplicationStatus": "READY",
+        "ApplicationVersionId": 1,
+        "CreateTimestamp": "2022-04-28T16:09:05+00:00",
+        "LastUpdateTimestamp": "2022-04-28T16:09:05+00:00",
+        "ApplicationConfigurationDescription": {
+            "ApplicationCodeConfigurationDescription": {
+                "CodeContentType": "ZIPFILE",
+                "CodeContentDescription": {
+                    "CodeMD5": "eb66bb06075760bd6b68ddd40cb719b4",
+                    "CodeSize": 46266769,
+                    "S3ApplicationCodeLocationDescription": {
+                        "BucketARN": "arn:aws:s3:::audio-analysis-1239asdfasdjf",
+                        "FileKey": "kda_flink_starter_kit_jar/amazon-kinesis-data-analytics-flink-starter-kit-1.0.jar"
+                    }
+                }
+            },
+            "FlinkApplicationConfigurationDescription": {
+                "CheckpointConfigurationDescription": {
+                    "ConfigurationType": "DEFAULT",
+                    "CheckpointingEnabled": true,
+                    "CheckpointInterval": 60000,
+                    "MinPauseBetweenCheckpoints": 5000
+                },
+                "MonitoringConfigurationDescription": {
+                    "ConfigurationType": "DEFAULT",
+                    "MetricsLevel": "APPLICATION",
+                    "LogLevel": "INFO"
+                },
+                "ParallelismConfigurationDescription": {
+                    "ConfigurationType": "CUSTOM",
+                    "Parallelism": 5,
+                    "ParallelismPerKPU": 1,
+                    "CurrentParallelism": 5,
+                    "AutoScalingEnabled": false
+                }
+            },
+            "EnvironmentPropertyDescriptions": {
+                "PropertyGroupDescriptions": [
+                    {
+                        "PropertyGroupId": "FlinkAppProperties",
+                        "PropertyMap": {
+                            "bucket_check_interval_in_seconds": "2",
+                            "inactivity_interval_in_seconds": "2",
+                            "input_stream_name": "kda_flink_starter_kit_kinesis_stream",
+                            "region": "us-east-1",
+                            "rolling_interval_in_seconds": "2",
+                            "s3_output_path": "s3a://audio-analysis-1239asdfasdjf/kda_flink_starter_kit_output",
+                            "session_time_out_in_minutes": "10",
+                            "stream_init_position": "TRIM_HORIZON"
+                        }
+                    }
+                ]
+            },
+            "ApplicationSnapshotConfigurationDescription": {
+                "SnapshotsEnabled": true
+            }
+        },
+        "CloudWatchLoggingOptionDescriptions": [
+            {
+                "CloudWatchLoggingOptionId": "1.1",
+                "LogStreamARN": "arn:aws:logs:us-east-1:259982120143:log-group:/aws/kinesis-analytics/kda_flink_starter_kit:log-stream:kda_flink_starter_kit"
+            }
+        ],
+        "ApplicationMaintenanceConfigurationDescription": {
+            "ApplicationMaintenanceWindowStartTime": "03:00",
+            "ApplicationMaintenanceWindowEndTime": "11:00"
+        },
+        "ConditionalToken": "861ec7a4c0b90eeef749f2cee38cf2db"
+    }
+}
