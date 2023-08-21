@@ -1,4 +1,4 @@
-# Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics Flink) – Starter Kit
+# Amazon Kinesis Data Analytics Flink – Starter Kit
 
 
 --------
