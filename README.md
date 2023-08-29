@@ -2,9 +2,12 @@
 
 
 --------
->  #### 🚨 August 30, 2023: Amazon Kinesis Data Analytics has been renamed to [Amazon Managed Service for Apache Flink](https://aws.amazon.com/managed-service-apache-flink).
+>  #### 🚨  August 30, 2023: Amazon Kinesis Data Analytics has been renamed to [Amazon Managed Service for Apache Flink](https://aws.amazon.com/managed-service-apache-flink).
 
 --------
+
+#### 🚨 This example refers to an old Apache Flink version (1.11) and managed service runtime. For newer examples, refer to then new [Blueprints repository](https://github.com/awslabs/managed-service-for-apache-flink-blueprints/) and general [Amazon Managed Service for Apache Flink examples](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples)
+____
 
 Amazon Kinesis Data Analytics Flink Starter Kit helps you with the development of Flink Application with Kinesis Stream as a source and Amazon S3 as a sink. This demonstrates the use of [Session Window](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#session-windows) with [AggregateFunction](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#aggregatefunction).
 
