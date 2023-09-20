@@ -1,7 +1,7 @@
 {
 	"ApplicationName": "amazon_kda_flink_starter_kit",
 	"ApplicationDescription": "KDA Session Manager with stream starting position as TRIM_HORIZON",
-	"RuntimeEnvironment": "FLINK-1_8",
+	"RuntimeEnvironment": "FLINK-1_13",
 	"ServiceExecutionRole": "arn:aws:iam::1234567890:role/flink_starter_kit_role",
 	"CloudWatchLoggingOptions": [
 		{
@@ -30,7 +30,7 @@
 			"CodeContent": {
 				"S3ContentLocation": {
 					"BucketARN": "arn:aws:s3:::bucket_name",
-					"FileKey": "kda_flink_starter_kit_jar/amazon-kinesis-data-analytics-flink-starter-kit-0.1.jar"
+					"FileKey": "kda_flink_starter_kit_jar/amazon-kinesis-data-analytics-flink-starter-kit-1.0.jar"
 				}
 			},
 			"CodeContentType": "ZIPFILE"
