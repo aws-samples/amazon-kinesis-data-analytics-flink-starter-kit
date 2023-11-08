@@ -77,7 +77,7 @@ You can deploy the Starter Kit using either AWS CLI or AWS Console.
     | region  | us-east-1 | AWS region |
     | input_stream_name | kda_flink_starter_kit_kinesis_stream | Input Kinesis Data Stream Name |
     | session_time_out_in_minutes      | 10 | Session timeout in minutes |
-    | stream_initial_position | TRIM_HORIZON | Refer documentation [here](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kinesis.html#configuring-starting-position) for more details |
+    | stream_init_position | TRIM_HORIZON | Refer documentation [here](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kinesis.html#configuring-starting-position) for more details |
     | s3_output_path | s3a://<bucket_name>/kda_flink_starter_kit_output | s3 path for Flink Application output |
     | bucket_check_interval_in_seconds | 2 | interval for checking time based rolling policies |
     | rolling_interval_in_seconds      | 2 | the max time a part file can stay open before having to roll |
